@@ -1,7 +1,7 @@
 const db = require("../api/data/db-config")
 
 function getUsers() {
-  return db("user")
+  return db("users")
 }
 
 function getById(id) {
@@ -9,7 +9,7 @@ function getById(id) {
 }
 
 function findBy(filter) {
-  return db("user").where(filter)
+  return db("users").where(filter)
 }
 
 async function addUser(user) {
@@ -19,12 +19,12 @@ async function addUser(user) {
 }
 
 async function updateUser(id, changes) {
-  await db("user").where({ id }).update(changes)
+  await db("users").where({ id }).update(changes)
 
   return getById(id)
 }
 function deleteUser(id) {
-  return db("user").where({ id }).del()
+  return db("users").where({ id }).del()
 }
 
 function findItemsByUser(id) {
