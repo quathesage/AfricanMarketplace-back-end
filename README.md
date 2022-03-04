@@ -1,6 +1,6 @@
 # Documentation for African Marketplace API
 
-<b>BaseURL:</b> https://bw-african-marketplace.herokuapp.com/
+<b>BaseURL:</b> https://bw-unit4.herokuapp.com/
 
 <details>
 <summary><b>POST - Register a new user</b></summary>
