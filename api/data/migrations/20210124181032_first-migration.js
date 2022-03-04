@@ -59,7 +59,6 @@ exports.down = async (knex) => {
   await knex.schema
     .dropTableIfExists("item_listings")
     .dropTableIfExists("items")
-    .dropTableIfExists("suggested_pricing")
     .dropTableIfExists("categories")
     .dropTableIfExists("locations")
     .dropTableIfExists("users")
