@@ -30,29 +30,29 @@ exports.up = async (knex) => {
       table.string("category_description", 200).unique()
     })
 
-    // SUGGESTED PRICING TABLE
-    .createTable("suggested_pricing", (table) => {
-      table.increments("cost_id")
-      table.decimal("suggested_price", 14, 2)
-      table.string("pricing_unit")
-      table.string("item_name", 200)
-      table
-        .integer("loc_id")
-        .unsigned()
-        .notNullable()
-        .references("loc_id")
-        .inTable("locations")
-        .onDelete("CASCADE")
-        .onUpdate("CASCADE")
-      table
-        .integer("cat_id")
-        .unsigned()
-        .notNullable()
-        .references("cat_id")
-        .inTable("categories")
-        .onDelete("CASCADE")
-        .onUpdate("CASCADE")
-    })
+    // // SUGGESTED PRICING TABLE
+    // .createTable("suggested_pricing", (table) => {
+    //   table.increments("cost_id")
+    //   table.decimal("suggested_price", 14, 2)
+    //   table.string("pricing_unit")
+    //   table.string("item_name", 200)
+    //   table
+    //     .integer("loc_id")
+    //     .unsigned()
+    //     .notNullable()
+    //     .references("loc_id")
+    //     .inTable("locations")
+    //     .onDelete("CASCADE")
+    //     .onUpdate("CASCADE")
+    //   table
+    //     .integer("cat_id")
+    //     .unsigned()
+    //     .notNullable()
+    //     .references("cat_id")
+    //     .inTable("categories")
+    //     .onDelete("CASCADE")
+    //     .onUpdate("CASCADE")
+    // })
 
     // ITEMS TABLE
     .createTable("items", (table) => {
@@ -62,7 +62,6 @@ exports.up = async (knex) => {
       table
         .integer("cat_id")
         .unsigned()
-        .notNullable()
         .references("cat_id")
         .inTable("categories")
         .onDelete("CASCADE")
@@ -85,28 +84,28 @@ exports.up = async (knex) => {
         .onUpdate("CASCADE")
     })
 
-    // ITEM LISTING APPOINTMENT TABLE
-    .createTable("item_listings", (table) => {
-      table.increments("id")
-      table.string("item_listing_description", 1024)
-      table.decimal("price", 14, 2)
-      table
-        .integer("user_id")
-        .unsigned()
-        .notNullable()
-        .references("user_id")
-        .inTable("users")
-        .onDelete("CASCADE")
-        .onUpdate("CASCADE")
-      table
-        .integer("item_id")
-        .unsigned()
-        .notNullable()
-        .references("item_id")
-        .inTable("items")
-        .onDelete("CASCADE")
-        .onUpdate("CASCADE")
-    })
+  // // ITEM LISTING APPOINTMENT TABLE
+  // .createTable("item_listings", (table) => {
+  //   table.increments("id")
+  //   table.string("item_listing_description", 1024)
+  //   table.decimal("price", 14, 2)
+  //   table
+  //     .integer("user_id")
+  //     .unsigned()
+  //     .notNullable()
+  //     .references("user_id")
+  //     .inTable("users")
+  //     .onDelete("CASCADE")
+  //     .onUpdate("CASCADE")
+  //   table
+  //     .integer("item_id")
+  //     .unsigned()
+  //     .notNullable()
+  //     .references("item_id")
+  //     .inTable("items")
+  //     .onDelete("CASCADE")
+  //     .onUpdate("CASCADE")
+  // })
 }
 
 exports.down = async (knex) => {
